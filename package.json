@@ -1,0 +1,17 @@
+{
+  "name": "minute-keeper-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Turn explicit meeting commitments into persistent, reviewable task memory.",
+  "author": "Antoine Morales",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "demo": "node src/cli.mjs",
+    "live": "node --env-file=.env src/cli.mjs --live"
+  }
+}
