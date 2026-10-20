@@ -1,0 +1,351 @@
+{
+  "mode": "deterministic",
+  "pendingBeforeApproval": {
+    "id": "sample-minute-keeper-agent:5:export_tasks",
+    "tool": "export_tasks",
+    "args": {
+      "sessionId": "kickoff",
+      "taskIds": [
+        "API-14",
+        "UI-08"
+      ]
+    }
+  },
+  "state": {
+    "version": 1,
+    "runId": "sample-minute-keeper-agent",
+    "goal": "Track commitments from kickoff, reconcile them with memory, and prepare a reviewed ticket export.",
+    "status": "complete",
+    "steps": 6,
+    "toolCalls": 5,
+    "tokens": 0,
+    "observations": [
+      {
+        "tool": "read_meeting",
+        "args": {
+          "sessionId": "kickoff"
+        },
+        "ok": true,
+        "result": {
+          "id": "kickoff",
+          "date": "2026-10-20",
+          "turns": [
+            {
+              "speaker": "Alex",
+              "text": "For API-14, I own \"Document retry behavior\" due 2026-10-23."
+            },
+            {
+              "speaker": "Sam",
+              "text": "For UI-08, I own \"Review empty states\" due 2026-10-24."
+            },
+            {
+              "speaker": "Alex",
+              "text": "We should improve observability someday."
+            }
+          ]
+        }
+      },
+      {
+        "tool": "recall_tasks",
+        "args": {
+          "sessionId": "kickoff"
+        },
+        "ok": true,
+        "result": []
+      },
+      {
+        "tool": "record_task",
+        "args": {
+          "id": "API-14",
+          "owner": "Alex",
+          "title": "Document retry behavior",
+          "due": "2026-10-23",
+          "sessionId": "kickoff",
+          "evidence": "For API-14, I own \"Document retry behavior\" due 2026-10-23."
+        },
+        "ok": true,
+        "result": {
+          "id": "API-14",
+          "owner": "Alex",
+          "title": "Document retry behavior",
+          "due": "2026-10-23",
+          "sessionId": "kickoff",
+          "evidence": "For API-14, I own \"Document retry behavior\" due 2026-10-23.",
+          "observedOn": "2026-10-20",
+          "history": []
+        }
+      },
+      {
+        "tool": "record_task",
+        "args": {
+          "id": "UI-08",
+          "owner": "Sam",
+          "title": "Review empty states",
+          "due": "2026-10-24",
+          "sessionId": "kickoff",
+          "evidence": "For UI-08, I own \"Review empty states\" due 2026-10-24."
+        },
+        "ok": true,
+        "result": {
+          "id": "UI-08",
+          "owner": "Sam",
+          "title": "Review empty states",
+          "due": "2026-10-24",
+          "sessionId": "kickoff",
+          "evidence": "For UI-08, I own \"Review empty states\" due 2026-10-24.",
+          "observedOn": "2026-10-20",
+          "history": []
+        }
+      },
+      {
+        "tool": "export_tasks",
+        "args": {
+          "sessionId": "kickoff",
+          "taskIds": [
+            "API-14",
+            "UI-08"
+          ]
+        },
+        "ok": true,
+        "result": {
+          "exported": [
+            "API-14",
+            "UI-08"
+          ],
+          "simulated": true
+        }
+      }
+    ],
+    "trace": [
+      {
+        "index": 0,
+        "event": "tool_requested",
+        "name": "read_meeting",
+        "args": {
+          "sessionId": "kickoff"
+        }
+      },
+      {
+        "index": 1,
+        "event": "tool_result",
+        "name": "read_meeting",
+        "args": {
+          "sessionId": "kickoff"
+        },
+        "result": {
+          "id": "kickoff",
+          "date": "2026-10-20",
+          "turns": [
+            {
+              "speaker": "Alex",
+              "text": "For API-14, I own \"Document retry behavior\" due 2026-10-23."
+            },
+            {
+              "speaker": "Sam",
+              "text": "For UI-08, I own \"Review empty states\" due 2026-10-24."
+            },
+            {
+              "speaker": "Alex",
+              "text": "We should improve observability someday."
+            }
+          ]
+        },
+        "reviewer": null
+      },
+      {
+        "index": 2,
+        "event": "tool_requested",
+        "name": "recall_tasks",
+        "args": {
+          "sessionId": "kickoff"
+        }
+      },
+      {
+        "index": 3,
+        "event": "tool_result",
+        "name": "recall_tasks",
+        "args": {
+          "sessionId": "kickoff"
+        },
+        "result": [],
+        "reviewer": null
+      },
+      {
+        "index": 4,
+        "event": "tool_requested",
+        "name": "record_task",
+        "args": {
+          "id": "API-14",
+          "owner": "Alex",
+          "title": "Document retry behavior",
+          "due": "2026-10-23",
+          "sessionId": "kickoff",
+          "evidence": "For API-14, I own \"Document retry behavior\" due 2026-10-23."
+        }
+      },
+      {
+        "index": 5,
+        "event": "tool_result",
+        "name": "record_task",
+        "args": {
+          "id": "API-14",
+          "owner": "Alex",
+          "title": "Document retry behavior",
+          "due": "2026-10-23",
+          "sessionId": "kickoff",
+          "evidence": "For API-14, I own \"Document retry behavior\" due 2026-10-23."
+        },
+        "result": {
+          "id": "API-14",
+          "owner": "Alex",
+          "title": "Document retry behavior",
+          "due": "2026-10-23",
+          "sessionId": "kickoff",
+          "evidence": "For API-14, I own \"Document retry behavior\" due 2026-10-23.",
+          "observedOn": "2026-10-20",
+          "history": []
+        },
+        "reviewer": null
+      },
+      {
+        "index": 6,
+        "event": "tool_requested",
+        "name": "record_task",
+        "args": {
+          "id": "UI-08",
+          "owner": "Sam",
+          "title": "Review empty states",
+          "due": "2026-10-24",
+          "sessionId": "kickoff",
+          "evidence": "For UI-08, I own \"Review empty states\" due 2026-10-24."
+        }
+      },
+      {
+        "index": 7,
+        "event": "tool_result",
+        "name": "record_task",
+        "args": {
+          "id": "UI-08",
+          "owner": "Sam",
+          "title": "Review empty states",
+          "due": "2026-10-24",
+          "sessionId": "kickoff",
+          "evidence": "For UI-08, I own \"Review empty states\" due 2026-10-24."
+        },
+        "result": {
+          "id": "UI-08",
+          "owner": "Sam",
+          "title": "Review empty states",
+          "due": "2026-10-24",
+          "sessionId": "kickoff",
+          "evidence": "For UI-08, I own \"Review empty states\" due 2026-10-24.",
+          "observedOn": "2026-10-20",
+          "history": []
+        },
+        "reviewer": null
+      },
+      {
+        "index": 8,
+        "event": "tool_requested",
+        "name": "export_tasks",
+        "args": {
+          "sessionId": "kickoff",
+          "taskIds": [
+            "API-14",
+            "UI-08"
+          ]
+        }
+      },
+      {
+        "index": 9,
+        "event": "approval_required",
+        "id": "sample-minute-keeper-agent:5:export_tasks",
+        "tool": "export_tasks",
+        "args": {
+          "sessionId": "kickoff",
+          "taskIds": [
+            "API-14",
+            "UI-08"
+          ]
+        }
+      },
+      {
+        "index": 10,
+        "event": "tool_result",
+        "name": "export_tasks",
+        "args": {
+          "sessionId": "kickoff",
+          "taskIds": [
+            "API-14",
+            "UI-08"
+          ]
+        },
+        "result": {
+          "exported": [
+            "API-14",
+            "UI-08"
+          ],
+          "simulated": true
+        },
+        "reviewer": "sample-reviewer"
+      },
+      {
+        "index": 11,
+        "event": "completed"
+      }
+    ],
+    "receipts": {
+      "{\"args\":{\"due\":\"2026-10-23\",\"evidence\":\"For API-14, I own \\\"Document retry behavior\\\" due 2026-10-23.\",\"id\":\"API-14\",\"owner\":\"Alex\",\"sessionId\":\"kickoff\",\"title\":\"Document retry behavior\"},\"name\":\"record_task\"}": {
+        "id": "API-14",
+        "owner": "Alex",
+        "title": "Document retry behavior",
+        "due": "2026-10-23",
+        "sessionId": "kickoff",
+        "evidence": "For API-14, I own \"Document retry behavior\" due 2026-10-23.",
+        "observedOn": "2026-10-20",
+        "history": []
+      },
+      "{\"args\":{\"due\":\"2026-10-24\",\"evidence\":\"For UI-08, I own \\\"Review empty states\\\" due 2026-10-24.\",\"id\":\"UI-08\",\"owner\":\"Sam\",\"sessionId\":\"kickoff\",\"title\":\"Review empty states\"},\"name\":\"record_task\"}": {
+        "id": "UI-08",
+        "owner": "Sam",
+        "title": "Review empty states",
+        "due": "2026-10-24",
+        "sessionId": "kickoff",
+        "evidence": "For UI-08, I own \"Review empty states\" due 2026-10-24.",
+        "observedOn": "2026-10-20",
+        "history": []
+      },
+      "{\"args\":{\"sessionId\":\"kickoff\",\"taskIds\":[\"API-14\",\"UI-08\"]},\"name\":\"export_tasks\"}": {
+        "exported": [
+          "API-14",
+          "UI-08"
+        ],
+        "simulated": true
+      }
+    },
+    "pending": null,
+    "answer": "2 commitments recorded and reviewed. Previous deadlines remain in memory; unassigned suggestions were omitted."
+  },
+  "result": {
+    "API-14": {
+      "id": "API-14",
+      "owner": "Alex",
+      "title": "Document retry behavior",
+      "due": "2026-10-23",
+      "sessionId": "kickoff",
+      "evidence": "For API-14, I own \"Document retry behavior\" due 2026-10-23.",
+      "observedOn": "2026-10-20",
+      "history": []
+    },
+    "UI-08": {
+      "id": "UI-08",
+      "owner": "Sam",
+      "title": "Review empty states",
+      "due": "2026-10-24",
+      "sessionId": "kickoff",
+      "evidence": "For UI-08, I own \"Review empty states\" due 2026-10-24.",
+      "observedOn": "2026-10-20",
+      "history": []
+    }
+  }
+}
